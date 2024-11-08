@@ -1,7 +1,7 @@
 Package: countmissingvalues
 Type: Package
 Title: count_all_missing_by_group
-Version: 0.1.0
+Version: 0.2.0
 Author: Linoja Sajanthan <lino.sajanthan@gmail.com>
 Maintainer: Linoja Sajanthan <lino.sajanthan@gmail.com>
 Description: This package provides a function, `count_all_missing_by_group`, which 

@@ -5,55 +5,58 @@ date: "`r Sys.Date()`"
 output: github_document
 ---
 
-# count_all_missing_by_group
+# countmissingvalues
 
 ## Package Introduction and Description
-The `count_all_missing_by_group` package provides a function designed to help users count missing values within a dataset by specified groups. This function is particularly useful for gaining insights into the distribution of missing data across different groups, helping to facilitate data cleaning and preprocessing tasks.
+The `countmissingvalues` package provides a function designed to help users count missing values within a dataset by specified groups. This function is particularly useful for gaining insights into the distribution of missing data across different groups, helping to facilitate data cleaning and preprocessing tasks.
 
 ### Key Functionality
-The main function, `count_all_missing_by_group()`, takes a dataset, a grouping column, and an optional parameter to control the structure of the output. The function groups data based on the specified column and calculates the count of missing values for all other columns, providing an organized view of missing data patterns.
+The main function, `countmissingvalues()`, takes a dataset, a grouping column, and an optional parameter to control the structure of the output. The function groups data based on the specified column and calculates the count of missing values for all other columns, providing an organized view of missing data patterns.
 
 ## Installation Instructions
-To install the `count_all_missing_by_group` package from GitHub, you’ll need to use the `devtools` package. Here’s how to do it:
-
+To install the `countmissingvalues` package from GitHub, you’ll need to use the `devtools` package. Here’s how to do it:
 ```{r}
 # Install devtools if it's not already installed
 install.packages("devtools")
 
-# Install count_all_missing_by_group package from GitHub
-devtools::install_github("https://github.com/Linojasajan/countmissingvalues/tree/main")
+# Install countmissingvalues package from GitHub
+devtools::install_github("stat545ubc-2024/countmissingvalues")
 ```
 
 ### Demonstrated Usage
-Once installed, you can start using the count_all_missing_by_group() function as shown below. The function’s parameters include:
+Once installed, you can start using the countmissingvalues() function as shown below. The function’s parameters include:
 
 data: A data frame or tibble containing the dataset.
 group_col: The column to group by when counting missing values.
 .groups (optional): Controls grouping in the output, defaulting to "drop".
 
+
 ### Example Dataset
-For demonstration, this README uses R's built-in airquality dataset, which contains air quality measurements in New York for several months. Since airquality is built into R, users don’t need to upload or install additional datasets to run the examples below.
+For demonstration, you can use the R's built-in airquality dataset, which contains air quality measurements in New York for several months. Since airquality is built into R, users don’t need to upload or install additional datasets to run the examples below.
 
-### Examples
-
-# 1. Basic Usage
+Examples
+1. Basic Usage
 Count missing values in the airquality dataset, grouped by Month:
+
 ```{r}
-library(count_all_missing_by_group)
+library(countmissingvalues)
 count_all_missing_by_group(airquality, Month)
 ```
 
-# 2. Using the Pipe Syntax
+2. Using the Pipe Syntax
 The function supports piping, allowing you to pass the dataset directly into the function:
+
 ```{r}
-airquality |> count_all_missing_by_group(Month)
+airquality |> countmissingvalues::count_all_missing_by_group(Month)
 ```
 
-# 3. Keeping Grouped Output
+3. Keeping Grouped Output
 To retain the grouping in the output tibble, set .groups = "keep":
+
 ```{r}
 count_all_missing_by_group(airquality, Month, .groups = "keep")
 ```
+
 
 ### License
 This package is licensed under the MIT License.
